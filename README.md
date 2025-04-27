@@ -106,7 +106,62 @@ The skymask-aided WLS GNSS positioning method offers a robust solution to the ch
 
 ## Task 3 – GPS RAIM (Receiver Autonomous Integrity Monitoring)
 
-**[Details here... Include content as needed]**
+Receiver Autonomous Integrity Monitoring (RAIM) is a critical technique used to detect and exclude faulty GPS measurements, thereby improving the reliability and accuracy of positioning solutions. This report outlines the development and implementation of a classic weighted RAIM algorithm to process the provided "Open-Sky" data. The algorithm is based on the weighted least squares (WLS) method and includes the computation of the 3D protection level (PL) and the evaluation of GNSS integrity monitoring performance using a Stanford Chart analysis.
+### Methodology
+#### Weighted Least Squares (WLS) Positioning
+The WLS method is used to estimate the receiver's position and clock bias. The key steps are:
+1.	Initialize Position: Start with an initial position estimate.
+2.	Calculate Residuals: Compute the residuals between the observed pseudoranges and the calculated ranges.
+3.	Form Design Matrix: Construct the design matrix HH using the direction cosines of the satellite-receiver vectors.
+4.	Weighting Matrix: Create a weighting matrix WW based on the carrier-to-noise ratio (C/N0) of the received signals.
+5.	Solve for Position: Use the WLS equation to solve for the position and clock bias: $\Delta x = (H^TWH)^{-1}H^TWdR$.
+6.	Update Position: Update the position and clock bias estimates using the solution from the WLS equation.
+#### Weighted RAIM Algorithm
+The weighted RAIM algorithm is used to detect and exclude faulty measurements. The key steps are:
+1.	Chi-Squared Test: Compute the weighted sum of squared residuals (WSSE) and compare it to a threshold.
+2.	Threshold Calculation: The threshold is calculated using the chi-squared distribution: $\text{Threshold} = \chi^2_{1-P_{fa}, \text{DOF}}$ , 
+where $P_{fa}$ is the probability of false alarm and DOF is the number of measurements minus 4.
+3.	Fault Detection: If the WSSE exceeds the threshold, a fault is detected.
+4.	Fault Isolation: Isolate the faulty satellite by removing one satellite at a time and re-computing the WSSE. If the WSSE falls below the threshold, the removed satellite is identified as faulty.
+#### Computation of 3D Protection Level (PL)
+The 3D protection level (PL) is computed to ensure the integrity of the positioning solution. The key steps are:
+1.	Design Matrix Inverse: Compute the inverse of the design matrix $H$: $(H^TWH)^{-1}$
+2.	Protection Level Calculation: The PL is calculated using: $PL = k \cdot \sigma \cdot \sqrt{\text{diag}((H^TWH)^{-1})}$, 
+where $k$ is a factor based on the probability of missed detection $P_{md}$ and $\sigma$ is the standard deviation of the pseudorange measurements.
+#### Stanford Chart Analysis
+The Stanford Chart is used to evaluate the GNSS integrity monitoring performance. The key steps are:
+1.	Plot Position Error vs. Protection Level: Plot the position error (3D) against the protection level (PL).
+2.	Add Alert Limit Lines: Add horizontal and vertical lines at the 3D alarm limit (AL) of 50 meters.
+3.	Add 1:1 Reference Line: Add a 1:1 reference line to indicate the ideal scenario where the position error equals the protection level.
+### Results
+#### Detection Results
+Fig. 4 shows the GNSS positioning results in the opensky environment. Fig.5 shows the test statistics (sqrt WSSE) and the threshold over time. The blue line represents the sqrt WSSE, and the red line represents the threshold. If the sqrt WSSE exceeds the threshold, a fault is detected.
+
+![image](https://github.com/user-attachments/assets/115495cd-91d9-4325-a381-31b631349376)
+	
+Fig.4 GNSS positioning results in the opensky environment
+
+![image](https://github.com/user-attachments/assets/22f127cf-e2c1-4584-a45a-4c377baff9bc)
+
+Fig. 5 Detection results
+
+#### Protection Level
+Fig. 6 shows the 3D protection level (PL) over time. The green line represents the PL, which indicates the maximum possible position error with a specified confidence level.
+
+![image](https://github.com/user-attachments/assets/bce2ac20-3e4e-46fa-ad3c-70dc001b30eb)
+
+Fig. 6 Protection level
+#### Stanford Chart
+Fig. 7 is the Stanford Chart, which plots the position error (3D) against the protection level (PL). The black dashed lines represent the 3D alarm limit (AL) of 50 meters. The 1:1 reference line indicates the ideal scenario where the position error equals the protection level.
+
+![image](https://github.com/user-attachments/assets/85fdd51c-a017-48fc-89dc-8fae80dbf86f)
+ 
+Fig. 7 Stanford chart
+
+
+### Conclusion
+The RAIM algorithm effectively detects and excludes faulty measurements, as indicated by the detection results plot. The sqrt WSSE remains below the threshold most of the time, indicating that the positioning solution is reliable. The computed 3D protection level (PL) provides a measure of the integrity of the positioning solution. The PL values are generally below the 3D alarm limit (AL) of 50 meters, ensuring that the position errors are within acceptable limits. The Stanford Chart analysis confirms that the position errors are generally below the 3D alarm limit (AL) of 50 meters. Most points lie below the 1:1 reference line, indicating that the protection level is conservative and provides a high level of integrity.
+The implementation of the classic weighted RAIM algorithm successfully improves and monitors the positioning performance by detecting and excluding faulty GPS measurements. The computation of the 3D protection level (PL) and the evaluation of GNSS integrity monitoring performance using a Stanford Chart analysis provide valuable insights into the reliability and accuracy of the positioning solution. The results demonstrate that the RAIM algorithm effectively ensures the integrity of the GPS positioning system.
 
 ---
 
