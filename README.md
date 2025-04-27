@@ -1,6 +1,10 @@
-# AAE6102 Assignment 2
+# AAE6102 Satellite Communication and Navigation
 
-**Author**: WANG Junhui
+## Assignment 2
+
+**Due Date:** 1 May 2025  
+**Student Name:** WANG Junhui  
+**Student ID:** 23038168r  
 
 ---
 
@@ -175,4 +179,6 @@ The integration of GNSS into seismology has expanded our ability to monitor, ana
 
 ---
 
-**Author**: WANG Junhui
+**Contact Information:**  
+- **Name:** WANG Junhui  
+- **Email:** junhui01.wang@connect.polyu.hk
