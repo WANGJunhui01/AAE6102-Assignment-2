@@ -135,7 +135,7 @@ The Stanford Chart is used to evaluate the GNSS integrity monitoring performance
 3.	Add 1:1 Reference Line: Add a 1:1 reference line to indicate the ideal scenario where the position error equals the protection level.
 ### Results
 #### Detection Results
-Fig. 4 shows the GNSS positioning results in the opensky environment. Fig.5 shows the test statistics (sqrt WSSE) and the threshold over time. The blue line represents the sqrt WSSE, and the red line represents the threshold. If the sqrt WSSE exceeds the threshold, a fault is detected.
+Fig. 4 shows the GNSS positioning results in the opensky environment. Fig.5 shows the test statistics (sqrt WSSE) and the threshold over time. The blue circle represents the sqrt WSSE, and the red circle represents the threshold. If the sqrt WSSE exceeds the threshold, a fault is detected.
 
 ![image](https://github.com/user-attachments/assets/115495cd-91d9-4325-a381-31b631349376)
 	
@@ -146,7 +146,7 @@ Fig.4 GNSS positioning results in the opensky environment
 Fig. 5 Detection results
 
 #### Protection Level
-Fig. 6 shows the 3D protection level (PL) over time. The green line represents the PL, which indicates the maximum possible position error with a specified confidence level.
+Fig. 6 shows the 3D protection level (PL) over time. The red line represents the PL, which indicates the maximum possible position error with a specified confidence level.
 
 ![image](https://github.com/user-attachments/assets/bce2ac20-3e4e-46fa-ad3c-70dc001b30eb)
 
