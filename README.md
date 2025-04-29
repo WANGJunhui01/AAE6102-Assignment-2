@@ -21,7 +21,6 @@
 ## Task 1 – Differential GNSS Positioning
 ```
 Model: ChatGPT 4o
-Prompt: Please help me compare the pros and cons of DGNSS, RTK, PPP and PPP-RTK for smartphone navigation
 Chatroom Link: https://poe.com/s/1kRQkqaf1oqQxT60vj1W
 ```
 
@@ -169,7 +168,6 @@ The implementation of the classic weighted RAIM algorithm successfully improves 
 
 ```
 Model: ChatGPT 4o
-Prompt: Please discuss the difficulties and challenges of using LEO communication satellites for GNSS navigation
 Chatroom Link: https://poe.com/s/c9tyn7tvd63rGdzuguBQ
 ```
 
@@ -209,7 +207,6 @@ Despite these challenges, advances in satellite technology, hybrid receiver desi
 
 ```
 Model: ChatGPT 4o
-Prompt: Please help me discuss the impact of GNSS in remote sensing of GNSS seismology
 Chatroom Link: https://poe.com/s/zh8DLdBdqQa9HNMco8zZ 
 ```
 
